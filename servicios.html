@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Skibidi Modelling</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/Vmhe5mG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(17 24 39); /* bg-gray-900 */
+            color: rgb(243 244 246); /* text-gray-100 */
+        }
+
+        .service-card {
+            transition: transform 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .package-card {
+            border-top: 4px solid;
+        }
+        .basic {
+            border-color: #6b7280;
+        }
+        .standard {
+            border-color: #8b5cf6;
+        }
+        .premium {
+            border-color: #f59e0b;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i data-feather="box" class="text-violet-500 mr-2"></i>
+                        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-200">SKIBIDI MODELLING</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-violet-300 transition">Inicio</a>
+                    <a href="portafolio.html" class="text-gray-300 hover:text-violet-300 transition">Portafolio</a>
+                    <a href="servicios.html" class="text-violet-300 font-medium">Servicios</a>
+                    <a href="proceso.html" class="text-gray-300 hover:text-violet-300 transition">Proceso</a>
+                    <a href="contacto.html" class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition">Contacto</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-gray-300">Inicio</a>
+                <a href="portafolio.html" class="block py-2 text-gray-300">Portafolio</a>
+                <a href="servicios.html" class="block py-2 text-violet-300">Servicios</a>
+                <a href="proceso.html" class="block py-2 text-gray-300">Proceso</a>
+                <a href="contacto.html" class="block mt-2 bg-violet-600 text-white px-4 py-2 rounded-lg w-max">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Header -->
+    <section class="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Nuestros Servicios</h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Paquetes diseñados específicamente para desarrolladores indie que necesitan modelos 3D de calidad profesional a precios accesibles.
+            </p>
+        </div>
+    </section>
+
+    <!-- Package Comparison -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Paquetes de Servicios</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Elige el nivel de servicio que mejor se adapte a las necesidades de tu proyecto.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Basic Package -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden package-card basic">
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold">Básico</h3>
+                            <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full text-sm">Desde $299</span>
+                        </div>
+                        <p class="text-gray-400 mb-6">Modelo listo para implementar en tu motor de juego favorito.</p>
+                        <div class="mb-8">
+                            <span class="text-3xl font-bold">$299-499</span>
+                            <span class="text-gray-400 block text-sm">por personaje (según complejidad)</span>
+                        </div>
+                        <a href="contacto.html" class="block w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 rounded-lg transition mb-8">
+                            Consultar
+                        </a>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Esculpido High-Poly</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Modelo Low-Poly optimizado</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Mapeado UV completo</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Texturizado PBR (4K)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="x" class="text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-500">Rigging/Skinning</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="x" class="text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-500">Animaciones</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Standard Package (Featured) -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden border-2 border-violet-500 package-card standard relative">
+                    <div class="absolute top-0 right-0 bg-violet-600 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
+                        POPULAR
+                    </div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold">Estándar</h3>
+                            <span class="bg-violet-600/20 text-violet-300 px-3 py-1 rounded-full text-sm">Desde $599</span>
+                        </div>
+                        <p class="text-gray-400 mb-6">Personaje completo listo para ser animado por tu equipo.</p>
+                        <div class="mb-8">
+                            <span class="text-3xl font-bold">$599-899</span>
+                            <span class="text-gray-400 block text-sm">por personaje (según complejidad)</span>
+                        </div>
+                        <a href="contacto.html" class="block w-full bg-violet-600 hover:bg-violet-700 text-white text-center py-3 rounded-lg transition mb-8">
+                            Consultar
+                        </a>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Todo lo del Paquete Básico</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Rigging profesional</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Skinning/Pesado de vértices</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Controladores IK/FK</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Pose de referencia</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="x" class="text-gray-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <span class="text-gray-500">Animaciones</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Premium Package -->
+                <div class="bg-gray-800 rounded-xl overflow-hidden package-card premium">
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold">Premium</h3>
+                            <span class="bg-amber-600/20 text-amber-300 px-3 py-1 rounded-full text-sm">Desde $999</span>
+                        </div>
+                        <p class="text-gray-400 mb-6">Personaje completamente animado listo para tu juego.</p>
+                        <div class="mb-8">
+                            <span class="text-3xl font-bold">$999-1499</span>
+                            <span class="text-gray-400 block text-sm">por personaje (según complejidad)</span>
+                        </div>
+                        <a href="contacto.html" class="block w-full bg-amber-600 hover:bg-amber-700 text-white text-center py-3 rounded-lg transition mb-8">
+                            Consultar
+                        </a>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Todo lo del Paquete Estándar</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Set de animaciones básicas (5-7)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Implementación en Unity/Unreal</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Retoques finales</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Revisión en motor de juego</span>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-feather="check" class="text-green-400 mr-3 mt-1 flex-shrink-0"></i>
+                                <span>Soporte técnico por 1 mes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gray-800 rounded-xl p-8 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold mb-4 text-center">¿Necesitas algo personalizado?</h3>
+                <p class="text-gray-400 text-center mb-6">Estos son solo nuestros paquetes estándar. Podemos personalizar cualquier aspecto para adaptarnos perfectamente a las necesidades de tu proyecto.</p>
+                <div class="text-center">
+                    <a href="contacto.html" class="inline-block bg-violet-600 hover:bg-violet-700 text-white font-medium px-8 py-3 rounded-lg transition">
+                        Solicitar Cotización Personalizada
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Servicios Adicionales</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Complementa tus modelos con estos servicios especializados.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Service 1 -->
+                <div class="bg-gray-700/50 rounded-xl p-6 border border-gray-600 service-card">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="film" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Animaciones Personalizadas</h3>
+                    <p class="text-gray-400 mb-4">Set de animaciones a medida para tu personaje, desde movimientos básicos hasta habilidades especiales.</p>
+                    <span class="text-sm font-medium text-violet-400">Desde $200 por animación</span>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="bg-gray-700/50 rounded-xl p-6 border border-gray-600 service-card">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="wind" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Efectos Visuales (VFX)</h3>
+                    <p class="text-gray-400 mb-4">Partículas y efectos para habilidades, impactos, ambientes y más, listos para implementar en tu motor de juego.</p>
+                    <span class="text-sm font-medium text-violet-400">Desde $150 por efecto</span>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="bg-gray-700/50 rounded-xl p-6 border border-gray-600 service-card">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="box" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Assets de Escenario</h3>
+                    <p class="text-gray-400 mb-4">Objetos, props y elementos de escenario que complementan tus personajes y enriquecen tu mundo de juego.</p>
+                    <span class="text-sm font-medium text-violet-400">Desde $50 por asset simple</span>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="bg-gray-700/50 rounded-xl p-6 border border-gray-600 service-card">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="cpu" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Implementación en Motor</h3>
+                    <p class="text-gray-400 mb-4">Te ayudamos a integrar los modelos directamente en Unity o Unreal Engine con materiales y shaders optimizados.</p>
+                    <span class="text-sm font-medium text-violet-400">$75/hora</span>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="bg-gray-700/50 rounded-xl p-6 border border-gray-600 service-card">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="refresh-cw" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reducción de Polígonos</h3>
+                    <p class="text-gray-400 mb-4">Optimizamos modelos existentes para que funcionen mejor en dispositivos móviles o hardware limitado.</p>
+                    <span class="text-sm font-medium text-violet-400">$60/hora</span>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="bg-gray-700/50 rounded-xl p-6 border border-gray-600 service-card">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="edit" class="w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Concept Art 3D</h3>
+                    <p class="text-gray-400 mb-4">Convertimos tus conceptos 2D en modelos 3D de bloqueo para validar el diseño antes de la producción final.</p>
+                    <span class="text-sm font-medium text-violet-400">Desde $400 por concepto</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Preguntas Frecuentes</h2>
+                <p class="text-gray-400">Respuestas a las dudas más comunes sobre nuestros servicios.</p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <span class="font-medium">¿Cuánto tiempo toma completar un personaje?</span>
+                        <i data-feather="chevron-down" class="faq-icon transform transition duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-400">
+                            Los tiempos varían según el paquete y complejidad. En promedio:<br>
+                            - Básico: 2-3 semanas<br>
+                            - Estándar: 3-4 semanas<br>
+                            - Premium: 4-6 semanas<br>
+                            Podemos acelerar el proceso por un costo adicional si necesitas el modelo con urgencia.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <span class="font-medium">¿Qué formatos de archivo entregan?</span>
+                        <i data-feather="chevron-down" class="faq-icon transform transition duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-400">
+                            Trabajamos principalmente con FBX y OBJ para los modelos, y PNG/TGA para las texturas. Sin embargo, podemos entregar en cualquier formato que necesites (GLTF, Blend, etc.). Todos nuestros paquetes incluyen:
+                            <br>- Modelos en alta y baja poligonización<br>
+                            - Texturas PBR (Albedo, Normal, Metallic/Roughness, etc.)<br>
+                            - Documentación técnica<br>
+                            - Escenas de demostración para Unity/Unreal (en paquete Premium)
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <span class="font-medium">¿Trabajan con estilos específicos de arte?</span>
+                        <i data-feather="chevron-down" class="faq-icon transform transition duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-400">
+                            ¡Sí! Tenemos experiencia en múltiples estilos artísticos:<br>
+                            - Realista (PBR completo)<br>
+                            - Estilizado (cel shading, hand-painted)<br>
+                            - Low poly (optimizado para móviles)<br>
+                            - Anime/Toon<br>
+                            - Pixel art 3D<br>
+                            Antes de comenzar cualquier proyecto, analizamos referencias visuales para asegurarnos de que el estilo coincida con tu visión.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <span class="font-medium">¿Cómo manejan los derechos de autor?</span>
+                        <i data-feather="chevron-down" class="faq-icon transform transition duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-400">
+                            Todos los modelos creados bajo encargo son 100% propiedad del cliente, incluyendo derechos completos de uso comercial. Solo solicitamos permiso para mostrar el trabajo en nuestro portafolio (a menos que sea un proyecto bajo NDA).<br><br>
+                            Para modelos pre-made que vendemos en la Unity Asset Store o similares, aplica una licencia estándar de la plataforma.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="bg-gray-800 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full flex justify-between items-center p-6 text-left">
+                        <span class="font-medium">¿Ofrecen soporte post-entrega?</span>
+                        <i data-feather="chevron-down" class="faq-icon transform transition duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-6 pt-0">
+                        <p class="text-gray-400">
+                            Sí, todos nuestros paquetes incluyen:<br>
+                            - 15 días de soporte básico gratuito para correcciones menores<br>
+                            - El paquete Premium incluye 1 mes de soporte extendido<br>
+                            - Ofrecemos contratos de soporte continuo para proyectos en curso<br><br>
+                            Para problemas fuera del alcance (como modificaciones mayores o cambios de motor), cobramos una tarifa horaria reducida a clientes recurrentes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-violet-900/80 to-purple-900/80">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">¿Listo para comenzar tu proyecto?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Cuéntanos sobre tu juego y te ayudaremos a elegir el mejor paquete para tus necesidades.</p>
+            <a href="contacto.html" class="inline-block bg-white text-gray-900 hover:bg-gray-200 font-medium px-8 py-3 rounded-lg transition">
+                Contactar Ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Columna 1 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Skibidi Modelling</h3>
+                    <p class="mb-4">Especialistas en modelado 3D para desarrolladores indie que buscan calidad profesional.</p>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="text-gray-400 hover:text-violet-300 transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-300 transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-300 transition">
+                            <i data-feather="artstation"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Servicios</h3>
+                    <ul class="space-y-2">
+                        <li>Modelado de Personajes</li>
+                        <li>Rigging y Animación</li>
+                        <li>Assets para Juegos</li>
+                        <li>Optimización 3D</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-violet-300 transition">Inicio</a></li>
+                        <li><a href="portafolio.html" class="hover:text-violet-300 transition">Portafolio</a></li>
+                        <li><a href="servicios.html" class="hover:text-violet-300 transition">Servicios</a></li>
+                        <li><a href="proceso.html" class="hover:text-violet-300 transition">Nuestro Proceso</a></li>
+                        <li><a href="contacto.html" class="hover:text-violet-300 transition">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i>
+                            contacto@skibidimodelling.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p>&copy; 2025 Skibidi Modelling. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('.faq-icon');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>

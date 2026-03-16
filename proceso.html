@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proceso - Skibidi Modelling</title>
+    <link rel="icon" type="image/png" href="https://i.imgur.com/Vmhe5mG.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: rgb(17 24 39); /* bg-gray-900 */
+            color: rgb(243 244 246); /* text-gray-100 */
+        }
+
+        .process-step {
+            position: relative;
+            padding-left: 60px;
+        }
+        .process-step:before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #8b5cf6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .process-step:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #4b5563;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navbar -->
+    <nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <i data-feather="box" class="text-violet-500 mr-2"></i>
+                        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-violet-200">SKIBIDI MODELLING</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-300 hover:text-violet-300 transition">Inicio</a>
+                    <a href="portafolio.html" class="text-gray-300 hover:text-violet-300 transition">Portafolio</a>
+                    <a href="servicios.html" class="text-gray-300 hover:text-violet-300 transition">Servicios</a>
+                    <a href="proceso.html" class="text-violet-300 font-medium">Proceso</a>
+                    <a href="contacto.html" class="bg-violet-600 hover:bg-violet-700 text-white px-4 py-2 rounded-lg transition">Contacto</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 focus:outline-none">
+                    <i data-feather="menu"></i>
+                </button>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="index.html" class="block py-2 text-gray-300">Inicio</a>
+                <a href="portafolio.html" class="block py-2 text-gray-300">Portafolio</a>
+                <a href="servicios.html" class="block py-2 text-gray-300">Servicios</a>
+                <a href="proceso.html" class="block py-2 text-violet-300">Proceso</a>
+                <a href="contacto.html" class="block mt-2 bg-violet-600 text-white px-4 py-2 rounded-lg w-max">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Process Header -->
+    <section class="py-16 bg-gradient-to-b from-gray-800 to-gray-900">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Nuestro Proceso de Trabajo</h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Un flujo estructurado que garantiza resultados de alta calidad mientras mantiene una comunicación clara contigo en cada paso.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Process Steps -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="space-y-12">
+                <!-- Step 1 -->
+                <div class="process-step" data-step="1">
+                    <h2 class="text-2xl font-bold mb-4">1. Kick-off y Referencias</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    Analizamos tu documentación de diseño (lore, concept art, referencias) para entender completamente la visión de tu personaje. Si no tienes concept art, podemos trabajar con descripciones detalladas.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Concept art o referencias visuales</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Descripción detallada del personaje</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Especificaciones técnicas (polycount, estilo, etc.)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="file-text" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Documento de Especificación</h4>
+                                <p class="text-sm text-gray-400">Resumen detallado de los requisitos del personaje</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="image" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Moodboard</h4>
+                                <p class="text-sm text-gray-400">Colección de referencias visuales aprobadas</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="calendar" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Cronograma</h4>
+                                <p class="text-sm text-gray-400">Plan de trabajo con hitos y fechas clave</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="process-step" data-step="2">
+                    <h2 class="text-2xl font-bold mb-4">2. Blockout/Boceto 3D</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    Creamos una versión simplificada del personaje usando formas básicas (cubos, esferas, cilindros) para establecer proporciones, silueta y volumen general. Esto permite ajustes rápidos antes de entrar en detalles.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Feedback sobre proporciones y silueta</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Aprobación para pasar a la siguiente fase</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="box" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Blockout 3D</h4>
+                                <p class="text-sm text-gray-400">Modelo simple en formato .fbx/.obj</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="camera" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Vistas 360°</h4>
+                                <p class="text-sm text-gray-400">Imágenes desde múltiples ángulos</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="film" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Video Turntable</h4>
+                                <p class="text-sm text-gray-400">Rotación completa del modelo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="process-step" data-step="3">
+                    <h2 class="text-2xl font-bold mb-4">3. Esculpido High-Poly</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    Utilizando herramientas como ZBrush, añadimos todos los detalles complejos al modelo: arrugas, musculatura, pliegues de ropa, daños en armaduras, etc. Este modelo no está optimizado para juegos pero sirve como base para el baking de normales.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Feedback sobre los detalles</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Aprobación del diseño final</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Confirmación de cualquier cambio de diseño</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="layers" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">High-Poly Model</h4>
+                                <p class="text-sm text-gray-400">Archivo ZTL (ZBrush) o FBX con subdivisiones</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="image" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Renders Detallados</h4>
+                                <p class="text-sm text-gray-400">Close-ups de áreas con alto detalle</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="award" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Approval Sheet</h4>
+                                <p class="text-sm text-gray-400">Documento para aprobación firmada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="process-step" data-step="4">
+                    <h2 class="text-2xl font-bold mb-4">4. Retopología y UVs</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    Creamos una nueva malla optimizada (low-poly) que sigue la silueta del high-poly pero con una topología limpia para animación. Luego desplegamos los UVs para preparar las texturas, maximizando el espacio disponible y minimizando distorsiones.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Confirmación de polycount final</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Feedback si se requieren ajustes</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="cpu" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Low-Poly Model</h4>
+                                <p class="text-sm text-gray-400">Modelo optimizado en .fbx/.obj</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="map" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">UV Layout</h4>
+                                <p class="text-sm text-gray-400">Imagen del mapeado UV</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="bar-chart-2" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Reporte Técnico</h4>
+                                <p class="text-sm text-gray-400">Stats de triángulos, resolución UV, etc.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="process-step" data-step="5">
+                    <h2 class="text-2xl font-bold mb-4">5. Texturizado PBR</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    Utilizando Substance Painter, creamos texturas PBR (Albedo, Normal, Roughness, Metalness, etc.) que dan vida al modelo. Aplicamos materiales realistas o estilizados según tu requerimiento, incluyendo suciedad, desgaste y otros detalles que añadan autenticidad.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Feedback sobre colores y materiales</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Aprobación del estilo visual final</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="image" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Texturas PBR</h4>
+                                <p class="text-sm text-gray-400">Set completo en 4K/2K (PNG/TGA)</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="monitor" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Material Preview</h4>
+                                <p class="text-sm text-gray-400">Vistas en diferentes condiciones de luz</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="package" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Substance File</h4>
+                                <p class="text-sm text-gray-400">Archivo .spp para futuras ediciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 6 -->
+                <div class="process-step" data-step="6">
+                    <h2 class="text-2xl font-bold mb-4">6. Rigging y Animación (si aplica)</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    (Paquetes Estándar y Premium) Creamos un esqueleto (armature) profesional con controles fáciles de usar para animadores. Hacemos el skinning/pesado de vértices para que el modelo se deforme correctamente. Para el paquete Premium, añadimos un set de animaciones básicas listas para implementar.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Especificaciones de rig (si son especiales)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Lista de animaciones requeridas (Premium)</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Feedback sobre deformaciones</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="git-merge" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Modelo Riggeado</h4>
+                                <p class="text-sm text-gray-400">FBX con controles de animación</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="film" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Animaciones</h4>
+                                <p class="text-sm text-gray-400">Paquete Premium: 5-7 animaciones</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="video" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Demo Reel</h4>
+                                <p class="text-sm text-gray-400">Video mostrando las animaciones</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Step 7 -->
+                <div class="process-step" data-step="7">
+                    <h2 class="text-2xl font-bold mb-4">7. Entrega Final</h2>
+                    <div class="bg-gray-800 rounded-xl p-6 mb-6">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué hacemos?</h3>
+                                <p class="text-gray-400">
+                                    Empacamos todos los archivos finales en una estructura organizada, probamos los modelos en motores de juego (para paquete Premium) y preparamos documentación técnica. También ofrecemos una sesión de revisión final y soporte inicial para integración.
+                                </p>
+                            </div>
+                            <div class="md:w-1/2">
+                                <h3 class="text-lg font-semibold mb-3 text-violet-300">¿Qué necesitamos de ti?</h3>
+                                <ul class="text-gray-400 space-y-2">
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Confirmación de recepción</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Feedback final</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i data-feather="check-circle" class="text-violet-400 mr-2 mt-1 flex-shrink-0"></i>
+                                        <span>Pago final (si aplica)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-800/50 rounded-xl p-6">
+                        <h3 class="text-lg font-semibold mb-3 text-violet-300">Entregables</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="download" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Paquete Final</h4>
+                                <p class="text-sm text-gray-400">Todos los archivos organizados</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="file-text" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Documentación</h4>
+                                <p class="text-sm text-gray-400">Guía de implementación</p>
+                            </div>
+                            <div class="bg-gray-700/50 p-4 rounded-lg">
+                                <div class="text-violet-400 mb-2">
+                                    <i data-feather="headphones" class="w-6 h-6"></i>
+                                </div>
+                                <h4 class="font-medium mb-1">Soporte Inicial</h4>
+                                <p class="text-sm text-gray-400">15 días incluidos</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workflow -->
+    <section class="py-16 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">Flujo de Revisión y Aprobaciones</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">Mantenemos una comunicación clara en cada etapa para asegurar que el resultado final cumpla con tus expectativas.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="message-square" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Revisión Inicial</h3>
+                    <p class="text-gray-400">Presentamos entregables en cada fase y solicitamos tu feedback detallado.</p>
+                </div>
+                
+                <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="edit" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">2 Rondas de Cambios</h3>
+                    <p class="text-gray-400">Incluimos hasta dos rondas de revisiones por fase sin costo adicional.</p>
+                </div>
+                
+                <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="check-circle" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Aprobación Formal</h3>
+                    <p class="text-gray-400">Solicitamos aprobación por escrito antes de avanzar a la siguiente fase.</p>
+                </div>
+                
+                <div class="bg-gray-700/50 rounded-xl p-6 text-center">
+                    <div class="text-violet-400 mb-4">
+                        <i data-feather="alert-triangle" class="w-10 h-10 mx-auto"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Cambios Posteriores</h3>
+                    <p class="text-gray-400">Modificaciones después de aprobada una fase tienen costo adicional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gradient-to-r from-violet-900/80 to-purple-900/80">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-6">¿Listo para comenzar tu proyecto?</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">Contáctanos y te guiaremos a través de cada paso del proceso.</p>
+            <a href="contacto.html" class="inline-block bg-white text-gray-900 hover:bg-gray-200 font-medium px-8 py-3 rounded-lg transition">
+                Iniciar Proyecto
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Columna 1 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Skibidi Modelling</h3>
+                    <p class="mb-4">Especialistas en modelado 3D para desarrolladores indie que buscan calidad profesional.</p>
+                    <div class="flex space-x-4 mt-2">
+                        <a href="#" class="text-gray-400 hover:text-violet-300 transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-300 transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-violet-300 transition">
+                            <i data-feather="artstation"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Columna 2 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Servicios</h3>
+                    <ul class="space-y-2">
+                        <li>Modelado de Personajes</li>
+                        <li>Rigging y Animación</li>
+                        <li>Assets para Juegos</li>
+                        <li>Optimización 3D</li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="hover:text-violet-300 transition">Inicio</a></li>
+                        <li><a href="portafolio.html" class="hover:text-violet-300 transition">Portafolio</a></li>
+                        <li><a href="servicios.html" class="hover:text-violet-300 transition">Servicios</a></li>
+                        <li><a href="proceso.html" class="hover:text-violet-300 transition">Nuestro Proceso</a></li>
+                        <li><a href="contacto.html" class="hover:text-violet-300 transition">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4 -->
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Contacto</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2 w-4 h-4"></i>
+                            contacto@skibidimodelling.com
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p>&copy; 2025 Skibidi Modelling. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
